@@ -24,7 +24,8 @@ A user must manually create a COG file, where each row functions as the represen
 
 1. The COG file should be in TSV or CSV format and without a header (though a header should not interfere with the final output)
 2. COG file can take on any prefix name
-3. Hex color codes are not necessary and a user can redefine these values as needed for other downstream applications/analyses
+3. No limit to the number of COG lineages
+5. Hex color codes are not necessary and a user can redefine these values as needed for other downstream applications/analyses
 
 ### Downloading lineage.yml file
 
@@ -46,6 +47,8 @@ Users can rename the output file prefix using the `--output option`, modify the 
 
 ### Help Menu
 ```
+usage: LASR.py [-h] [-c file] [-l file] [-r] [-x hex color] [-o file] [-e {t,c}] [-f] [-d]
+
 LASR: Lineage Aggregation for SARS-CoV-2 using Recursion
 
 optional arguments:
@@ -53,6 +56,9 @@ optional arguments:
   -c file, --cog file   Callout-group (COG) file. Two column file with lineage and hex color (TSV or CSV format, no header)
   -l file, --lineage file
                         lineage.yml file
+  -r, --recombinants    Add "Recombinants" to the output file
+  -x hex color, --reco_color hex color
+                        HEX color for Recombinants [default=#FF00F0 i.e. hot pink]
   -o file, --output file
                         Name of output file (without extention)
   -e {t,c}, --extension {t,c}

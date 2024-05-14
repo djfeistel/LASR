@@ -22,7 +22,7 @@ def get_lineage_yml():
 			wf.write(r.text)
 	sys.exit(0)
 
-def create_color_dict(callout_lineage_color_file:str)->dict:
+def create_color_dict(callout_lineage_color_file:str, reco:bool, reco_color:str)->dict:
 	'''
 	takes in user defined callout group list with colors
 	file must have a header and be two columns
@@ -52,7 +52,11 @@ def create_color_dict(callout_lineage_color_file:str)->dict:
 		# Append a new row with "Other" and "#000000"
 		new_row = pd.DataFrame([["Other", "#000000"]], columns=df.columns)
 		df = pd.concat([df, new_row], ignore_index=True)
-		
+	
+	if reco:
+		new_row = pd.DataFrame([["Recombinant", reco_color]], columns=df.columns)
+		df = pd.concat([df, new_row], ignore_index=True)
+
 	dup_pass, list_index = check_for_duplicates(df)
 	
 	if dup_pass:
@@ -91,7 +95,7 @@ def load_lineage_yml_file(yml_file:str)->dict:
 		
 	return pd.DataFrame(yaml_data).set_index('name')
 
-def CalloutRecursion(df: pd.DataFrame, callout_color_dict: dict, lineage: str) -> str:
+def CalloutRecursion(df: pd.DataFrame, callout_color_dict: dict, lineage: str, reco:bool) -> str:
 	'''
 	fucntion is used to map through every lineage (name) in the lineage.yml file
 		and determine its most recent common ancestor wrt the callout groups
@@ -116,7 +120,10 @@ def CalloutRecursion(df: pd.DataFrame, callout_color_dict: dict, lineage: str) -
 	## lineages with recombinat_parents do not have a single parent in teh lineage.yml file
 	## so if this varible is true, then the lineage is considered a recombinant
 	elif not pd.isna(recombinant_parents):
-		return "Other" #"Recombinant"
+		if reco:
+			return "Recombinant"
+		else:
+			return "Other"
 	
 	## used for the first lineage (i.e., A) as it is technically the LUCA
 	elif pd.isna(parent) and pd.isna(recombinant_parents):
@@ -125,12 +132,14 @@ def CalloutRecursion(df: pd.DataFrame, callout_color_dict: dict, lineage: str) -
 	## if none of these work, rerun function with parent
 	## keep doing this until a match from one of the above is found
 	else:
-		return CalloutRecursion(df=df, callout_color_dict=callout_color_dict, lineage=parent)
+		return CalloutRecursion(df=df, callout_color_dict=callout_color_dict, lineage=parent, reco=reco)
 
 def opts():
 	parser = argparse.ArgumentParser(description='LASR: Lineage Aggregation for SARS-CoV-2 using Recursion', epilog="")
 	parser.add_argument('-c', '--cog', metavar='file', type=str, help='Callout-group (COG) file. Two column file with lineage and hex color (TSV or CSV format, no header)')
 	parser.add_argument('-l', '--lineage', metavar='file', type=str, help='lineage.yml file')
+	parser.add_argument('-r', '--recombinants', action="store_true", help='Add "Recombinants" to the output file')
+	parser.add_argument('-x', '--reco_color', metavar='hex color', type=str, default="#FF00F0", help='HEX color for Recombinants [default=#FF00F0 i.e. hot pink]')
 	parser.add_argument('-o', '--output', metavar='file', default="COG", type=str, help='Name of output file (without extention)')
 	parser.add_argument('-e', '--extension', default='t', choices=['t', 'c'], type=str, help='File extension for output: "t" for TSV, "c" for CSV [default=t]')
 	parser.add_argument('-f', '--full', action='store_true', help='Write detailed output file (includes additional information for each named lineage)')
@@ -150,7 +159,7 @@ def main():
 	output_delimiter = {'t': '\t', 'c': ','}[args.extension]
 	output_extention = {'t': '.tsv', 'c': '.csv'}[args.extension]
 
-	callout_color_dict = create_color_dict(cog_file)
+	callout_color_dict = create_color_dict(cog_file, reco=args.recombinants, reco_color=args.reco_color)
 	df = load_lineage_yml_file(lineage_file)
 
 	lineage_calloutgroup_assignment_dict = {
@@ -163,7 +172,7 @@ def main():
 	## run each lineage through 'CalloutRecursion' function
  
 	for lineage in df.index:
-		calloutgroup = CalloutRecursion(df=df, callout_color_dict=callout_color_dict, lineage=lineage)
+		calloutgroup = CalloutRecursion(df=df, callout_color_dict=callout_color_dict, lineage=lineage, reco=args.recombinants)
 
 		hex = callout_color_dict[calloutgroup]
 		lineage_calloutgroup_assignment_dict['name'].append(lineage)
