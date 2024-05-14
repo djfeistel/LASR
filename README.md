@@ -10,7 +10,8 @@ The following libraries are required:
 
 ### Usage
 
-```LASR: Lineage Aggregation of SARS-CoV-2 genomes using Recursion
+```
+LASR: Lineage Aggregation of SARS-CoV-2 genomes using Recursion
 
 optional arguments:
   -h, --help            show this help message and exit
