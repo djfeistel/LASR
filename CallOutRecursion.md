@@ -4,10 +4,10 @@
    - If the lineage isn't a direct member of the callout groups:
 
 2. **Look Up Parent Lineage:**
-   - The function retrieves the lineage’s parent from the DataFrame, identifying this parent as the immediate ancestor in the lineage tree.
+   - The function retrieves the lineage’s parent from the **lineage.yml** file, identifying this parent as the immediate ancestor in the lineage tree.
 
 3. **Check for Recombinant Parents:**
-   - It also examines "recombinant parents," which are additional possible lineage connections that occur when lineages combine genetic material, diverging from a simple parent-child relationship.
+   - It also examines "recombinant parents," which are additional possible lineage connections that occur when lineages recombine, diverging from a simple parent-child relationship.
 
 ## Handling Special Cases
 
@@ -15,10 +15,10 @@
    - If the lineage's parent is listed in the callout groups, the function returns this parent as the most relevant ancestor.
 
 5. **Recombinant Lineages:**
-   - If the lineage is associated with recombinant parents (making it without a single parent), indicating a complex ancestry, the function classifies it as "Other" (or "Recombinant" if the `-r` flag is set) to indicate that it does not adhere to a straightforward ancestral path.
+   - If the lineage is associated with recombinant parents, indicating a complex ancestry, the function classifies it as "Other", or as "Recombinant" if the `-r` flag is set.
 
 6. **Root Lineage Case:**
-   - In cases where the lineage represents the base of the lineage tree (technically the last universal common ancestor, or LUCA, with no parent), the function also returns "Other."
+   - In cases where the lineage represents the base of the lineage tree (technically the last universal common ancestor, or LUCA, with no parent), the function also returns "Other.
 
 ## Recursive Analysis
 
