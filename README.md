@@ -25,14 +25,22 @@ A user must manually create a COG file, where each row functions as the represen
 1. The COG file should be either be in TSV or CSV format and without a header (though a header should not interfere with the final output)
 2. Hex color codes are not necessary and a user can redefine these values as needed
 
-### lineage.yml file
+### Downloading lineage.yml file
 
 A user can download the latest **lineage.yml** file directly from the [outbreak.info](https://github.com/outbreak-info/outbreak.info/tree/master) using the command:  
-```python3 LASR.py --download```
+```
+python3 LASR.py --download
+```
+This will download and save the **lineage.yml** in the current working directory. This file is used as input for the `--lineage` flag. 
 
-This will download and save the **lineage.yml** in the current working directory.
+### Runnign LASR
 
+To run LASR with the minimal usage:
+```
+python3 LASR.py --lineage lineage.yml --cog cog_file.csv
 
+```
+### Help Menu
 ```
 LASR: Lineage Aggregation for SARS-CoV-2 using Recursion
 
