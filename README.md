@@ -3,13 +3,14 @@ LASR aggregates all known SARS-CoV-2 lineages based on their closest parent, as 
 
 This methodology has been adopted by the National Wastewater Surveillance System (NWSS) as part of its NWSS and Improved dashboard.
 
-### Dependencies
+## Dependencies
 Install the following libraries by running:  
 ```
 pip install PyYAML pandas
 ```
 
-### Usage
+## Usage
+### Callout-groups (COG) file curation
 A user must manually create a callout-group (COG) file, where each row functions as the representative lineage for the aggregated group of lineages. The first column should list the COG, and the second column should specify the HEX color.
 
 | COG  | HEX     |
