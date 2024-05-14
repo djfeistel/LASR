@@ -27,7 +27,7 @@ A user must manually create a COG file, where each row functions as the represen
 
 ### lineage.yml file
 
-A user can download the latest *lineage.yml* file directly from the [outbreak.info](https://github.com/outbreak-info/outbreak.info/tree/master)
+A user can download the latest **lineage.yml** file directly from the [outbreak.info](https://github.com/outbreak-info/outbreak.info/tree/master)
 ```
 LASR: Lineage Aggregation for SARS-CoV-2 using Recursion
 
