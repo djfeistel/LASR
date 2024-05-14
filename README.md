@@ -6,11 +6,13 @@ This methodology has been adopted by the National Wastewater Surveillance System
 
 ### Dependencies
 Install the following libraries by running:  
-```pip install PyYAML pandas```
+```
+pip install PyYAML pandas
+```
 
 ### Usage
 
-`
+```
 LASR: Lineage Aggregation of SARS-CoV-2 genomes using Recursion
 
 optional arguments:
@@ -24,5 +26,5 @@ optional arguments:
                         File extension for output: "t" for TSV, "c" for CSV [default=t]
   -f, --full            Write detailed output file (includes additional information for each named lineage)
   -d, --download        Download lineage.yml from from outbreak.info github
-  `
+  ```
 
