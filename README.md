@@ -10,14 +10,15 @@ pip install PyYAML pandas
 ```
 
 ### Usage
-Users must manually create a callout-group (or COG) file with representative lineages of an aggregate group such as the example provided below:
+A user must manually create a callout-group (COG) file with each rows as a representative lineage of an aggregate group with the first and second column being the COG and HEX color, respectivley:
+
 | COG  | HEX     |
 |------|---------|
 | BA.2 | #090909 |
 | JN.1 | #839472 |
 | KP.2 | #639940 |
 
-The COG file should be either be in TSV or CSV format and without a header (though a header should not ).
+**The COG file should be either be in TSV or CSV format and without a header (though a header should not interfere with the final output)**
 
 
 ```
