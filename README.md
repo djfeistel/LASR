@@ -45,7 +45,8 @@ This will produce the output file called **COG.tsv**
 
 Users can rename the output file prefix using the `--output option`, modify the delimiter with the `--extension {t,c}` option, and add additional features related to the **lineage.yml** file using the `--full option`, as desired.
 
-The `--recombinants` flag is intended for **exploratory purposes only** and is not utilized in the NWSS implementation of this algorithm. When used, all lineages that are not assotiated with a *parant* but do have *recombinant_parents* as defined in the **lineage.yml** file will be aggregated to the "Recombinant" COG classification in the final output.  Note that when used with a lower number of COGs, the number of "Recombinants" increases.
+The `--recombinants` flag is intended for **exploratory purposes only** and is not utilized in the NWSS implementation of this algorithm. When used, all lineages that are not assotiated with a *parant* but do have *recombinant_parents* as defined in the **lineage.yml** file will be aggregated to the "Recombinant" COG classification in the final output. The default "Recombinant" HEX color can be changed with the `--reco_color` flag. Note that when used with a lower number of COGs, the number of "Recombinants" increases.
+
 ### Help Menu
 ```
 usage: LASR.py [-h] [-c file] [-l file] [-r] [-x hex color] [-o file] [-e {t,c}] [-f] [-d]
