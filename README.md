@@ -10,11 +10,13 @@ pip install PyYAML pandas
 ```
 
 ### Usage
-Users must manually create a callout-group (or COG) file with representative lineages of an aggregate group.  
+Users must manually create a callout-group (or COG) file with representative lineages of an aggregate group such as teh example provided below:
+| COG  | HEX     |
+|------|---------|
 | BA.2 | #090909 |
-|:-----|:--------|
 | JN.1 | #839472 |
 | KP.2 | #639940 |
+
 
 
 ```
