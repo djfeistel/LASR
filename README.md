@@ -18,7 +18,7 @@ A user must manually create a callout-group (COG) file, where each row functions
 | JN.1 | #839472 |
 | KP.2 | #639940 |
 
-**The COG file should be either be in TSV or CSV format and without a header (though a header should not interfere with the final output)**
+**The COG file should be either be in TSV or CSV format and without a header (though a header should not interfere with the final output).**  
 *Hex color codes are not necessary and a user can redefine these values as they feel fit for there needs.*
 
 
