@@ -21,8 +21,8 @@ A user must manually create a COG file, where each row functions as the represen
 
 *example above*
 
-**The COG file should be either be in TSV or CSV format and without a header (though a header should not interfere with the final output).**  
-*Hex color codes are not necessary and a user can redefine these values as needed.*
+1. **The COG file should be either be in TSV or CSV format and without a header (though a header should not interfere with the final output).**  
+2. *Hex color codes are not necessary and a user can redefine these values as needed.*
 
 
 ```
