@@ -5,7 +5,7 @@ LASR aggregates all known SARS-CoV-2 lineages based on their closest parent, as 
 This methodology has been adopted by the National Wastewater Surveillance System (NWSS) as part of its NWSS and Improved dashboard.
 
 ### Dependencies
-The following libraries are required:
+Install the following libraries by running:  
 `pip install PyYAML pandas`  
 
 ### Usage
