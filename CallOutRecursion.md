@@ -1,6 +1,6 @@
 # TRACE: Tracking and Reporting Aggregated COVID-19 Emergences
 
-TRACE is a tool designed for aggregating and analyzing SARS-CoV-2 lineages. It maps each lineage to its most recent common ancestor within user-defined callout groups, supporting detailed and exploratory analysis.
+TRACE is a tool designed for aggregating lineages. It maps each lineage to its most recent common ancestor within user-defined callout groups, supporting detailed and exploratory analysis.
 
 ## Features
 - **Download Lineage Data:** Automatically fetch the latest lineage data from outbreak.info.
