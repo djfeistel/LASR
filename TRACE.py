@@ -4,7 +4,6 @@
 # Author: Dorian J. Feistel 
 # personl email: djfeistel@gmail.com
 # work email: OFX5@cdc.gov
-# 
 ##########################################################
 
 import requests
