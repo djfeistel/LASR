@@ -20,7 +20,7 @@ A user must manually create a COG file, where each row functions as the represen
 | JN.1 | #839472 |
 | KP.2 | #639940 |
 
-*example above*
+*example above of COG file*
 
 1. The COG file should be in TSV or CSV format and without a header (though a header should not interfere with the final output)
 2. COG file can take on any prefix name
