@@ -1,5 +1,5 @@
 ## LASR: Lineage Aggregation for SARS-CoV-2 using Recursion
-LASR aggregates all known SARS-CoV-2 lineages based on their closest parent, as specified in the lineage.yml file from [outbreak.info](https://github.com/outbreak-info/outbreak.info/tree/master). The process involves checking each lineage in lineage.yml to determine if it is included as a callout-group (COG) in a user defined file. If a lineage is not identified in the COG file, LASR then recursively identifies the closest related parent that matches one listed in the COG file. The final output is structured into three main columns, designed to facilitate further downstream analysis.
+LASR aggregates all known SARS-CoV-2 lineages based on their closest parent, as specified in the lineage.yml file from [outbreak.info](https://github.com/outbreak-info/outbreak.info/tree/master). The process involves checking each lineage in lineage.yml to determine if it is included as a callout-group (COG) in a user defined file. If a lineage is not immediately identified in the COG file, LASR then recursively identifies the closest related parent that matches one listed in the COG file. The final output is structured into three main columns, designed to facilitate further downstream analysis.
 
 This methodology has been adopted by the National Wastewater Surveillance System [NWSS](https://www.cdc.gov/nwss/index.html) as part of its NWSS and Improved dashboard.
 
@@ -22,8 +22,9 @@ A user must manually create a COG file, where each row functions as the represen
 
 *example above*
 
-1. The COG file should be either be in TSV or CSV format and without a header (though a header should not interfere with the final output)
-2. Hex color codes are not necessary and a user can redefine these values as needed
+1. The COG file should be in TSV or CSV format and without a header (though a header should not interfere with the final output)
+2. COG file can take on any prefix name
+3. Hex color codes are not necessary and a user can redefine these values as needed for other downstream applications/analyses
 
 ### Downloading lineage.yml file
 
@@ -38,8 +39,11 @@ This will download and save the **lineage.yml** in the current working directory
 To run LASR with the minimal usage:
 ```
 python3 LASR.py --lineage lineage.yml --cog cog_file.csv
-
 ```
+This will produce the output file called **COG.tsv**
+
+Users can rename the output file prefix using the `--output option`, modify the delimiter with the `--extension {t,c}` option, and add additional features related to the **lineage.yml** file using the `--full option`, as desired.
+
 ### Help Menu
 ```
 LASR: Lineage Aggregation for SARS-CoV-2 using Recursion
