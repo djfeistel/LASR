@@ -1,5 +1,5 @@
 ## LASR: Lineage Aggregation for SARS-CoV-2 using Recursion
-LASR aggregates all known SARS-CoV-2 lineages based on their closest parent, as specified in the lineage.yml file from outbreak.info. The process involves checking each lineage in lineage.yml to determine if it is included as a callout-group (COG) in a user defined file. If a lineage is not identified in the COG file, LASR then recursively identifies the closest related parent that matches one listed in the COG file. The final output is structured into three main columns, designed to facilitate further downstream analysis.
+LASR aggregates all known SARS-CoV-2 lineages based on their closest parent, as specified in the lineage.yml file from [outbreak.info](https://github.com/outbreak-info/outbreak.info/tree/master). The process involves checking each lineage in lineage.yml to determine if it is included as a callout-group (COG) in a user defined file. If a lineage is not identified in the COG file, LASR then recursively identifies the closest related parent that matches one listed in the COG file. The final output is structured into three main columns, designed to facilitate further downstream analysis.
 
 This methodology has been adopted by the National Wastewater Surveillance System (NWSS) as part of its NWSS and Improved dashboard.
 
@@ -27,7 +27,12 @@ A user must manually create a COG file, where each row functions as the represen
 
 ### lineage.yml file
 
-A user can download the latest **lineage.yml** file directly from the [outbreak.info](https://github.com/outbreak-info/outbreak.info/tree/master)
+A user can download the latest **lineage.yml** file directly from the [outbreak.info](https://github.com/outbreak-info/outbreak.info/tree/master) using the command:  
+```python3 LASR.py --download```
+
+This will download and save the **lineage.yml** in the current working directory.
+
+
 ```
 LASR: Lineage Aggregation for SARS-CoV-2 using Recursion
 
