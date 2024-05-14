@@ -11,6 +11,7 @@ pip install PyYAML pandas
 
 ## Usage
 ### Callout-groups (COG) file curation
+
 A user must manually create a COG file, where each row functions as the representative lineage for the aggregated group of lineages. The first column should list the COG, and the second column should specify the HEX color.
 
 | COG  | HEX     |
@@ -24,9 +25,11 @@ A user must manually create a COG file, where each row functions as the represen
 1. The COG file should be either be in TSV or CSV format and without a header (though a header should not interfere with the final output)
 2. Hex color codes are not necessary and a user can redefine these values as needed
 
+### lineage.yml file
 
+A user can download the latest *lineage.yml* file directly from the (outbreak.info[https://github.com/outbreak-info/outbreak.info/tree/master])
 ```
-LASR: Lineage Aggregation of SARS-CoV-2 genomes using Recursion
+LASR: Lineage Aggregation for SARS-CoV-2 using Recursion
 
 optional arguments:
   -h, --help            show this help message and exit
