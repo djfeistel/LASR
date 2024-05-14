@@ -23,5 +23,6 @@ optional arguments:
   -e {t,c}, --extension {t,c}
                         File extension for output: "t" for TSV, "c" for CSV [default=t]
   -f, --full            Write detailed output file (includes additional information for each named lineage)
-  -d, --download        Download lineage.yml from from outbreak.info github```
+  -d, --download        Download lineage.yml from from outbreak.info github
+  ```
 
