@@ -18,7 +18,9 @@ A user must manually create a COG file, where each row functions as the represen
 | BA.2 | #090909 |
 | JN.1 | #839472 |
 | KP.2 | #639940 |
+
 *example above*
+
 **The COG file should be either be in TSV or CSV format and without a header (though a header should not interfere with the final output).**  
 *Hex color codes are not necessary and a user can redefine these values as needed.*
 
