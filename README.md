@@ -47,6 +47,19 @@ Users can rename the output file prefix using the `--output option`, modify the 
 
 The `--recombinants` flag is intended for **exploratory purposes only** and is not utilized in the NWSS implementation of this algorithm. When used, all lineages that are not assotiated with a *parant* but do have *recombinant_parents* as defined in the **lineage.yml** file will be aggregated to the "Recombinant" COG classification in the final output. The default "Recombinant" HEX color can be changed with the `--reco_color` flag. Note that when used with a lower number of COGs, the number of "Recombinants" increases.
 
+### Output
+
+The final output when using the minimal usage of LASR returns a file called **COG.tsv** with three columns:
+1. lineage: name of the lineage as defined in the lineage.yml file
+2. cog: callout-group assotiated with the lineage
+3. hex: HEX color
+
+When the `--full` flag is set, four additioinal columns are added to the **COG.tsv** file:
+4. parent: lineage parent as defined in the lineage.yml file (NA if "parent" is not listed under a lineage name)
+5. recombinant_parents: lineage recombinant parents as defined in the lineage.yml file (NA if "recombinant_parents" is not listed under a lineage name)
+6. alias: lineage alias name as defined in the lineage.yml file
+7. children: all children found under a the lineage
+
 ### Help Menu
 ```
 usage: LASR.py [-h] [-c file] [-l file] [-r] [-x hex color] [-o file] [-e {t,c}] [-f] [-d]
