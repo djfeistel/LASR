@@ -1,5 +1,4 @@
-# LASR
-## Lineage Aggregation of SARS-CoV-2 genomes using Recursion
+## LASR: Lineage Aggregation of SARS-CoV-2 genomes using Recursion
 LASR aggregates all known SARS-CoV-2 lineages based on their closest parent, as specified in the lineage.yml file from outbreak.info. The process involves checking each lineage in lineage.yml to determine if it is included as a Callout Group (COG) in the COG file. If it is not identified in teh COG file, LASR then recursively identifies the closest related parent lineage that matches one listed in the COG file. The final output is structured into three main columns, designed to facilitate further downstream analysis.
 
 This methodology has been adopted by the National Wastewater Surveillance System (NWSS) as part of its NWSS and Improved dashboard.
