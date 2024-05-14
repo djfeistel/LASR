@@ -48,3 +48,9 @@ optional arguments:
   -f, --full            Write detailed output file (includes additional information for each named lineage)
   -d, --download        Download lineage.yml from from outbreak.info github
   ```
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](https://www.gnu.org/licenses/) file for details.
+
+Copyright (c) 2024 Dorian J. Feistel
