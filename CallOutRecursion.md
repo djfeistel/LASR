@@ -1,4 +1,14 @@
-## Navigating Lineage Relationships
+# TRACE: Tracking and Reporting Aggregated COVID-19 Emergences
+
+TRACE is a tool designed for aggregating and analyzing SARS-CoV-2 lineages. It maps each lineage to its most recent common ancestor within user-defined callout groups, supporting detailed and exploratory analysis.
+
+## Features
+- **Download Lineage Data:** Automatically fetch the latest lineage data from outbreak.info.
+- **Customizable Callout Groups:** Define callout groups with custom HEX color codes.
+- **Recombinant Handling:** Optionally include recombinant lineages with specified HEX colors.
+- **Flexible Output:** Generate detailed or summarized output files in CSV or TSV formats.
+
+## How It Works
 
 1. **Check Direct Membership:**
    - If the lineage isn't a direct member of the callout groups:

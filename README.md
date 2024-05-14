@@ -1,5 +1,5 @@
-## LASR: Lineage Aggregation for SARS-CoV-2 using Recursion
-LASR aggregates all known SARS-CoV-2 lineages based on their closest parent, as specified in the lineage.yml file from [outbreak.info](https://github.com/outbreak-info/outbreak.info/tree/master). The process involves checking each lineage in lineage.yml to determine if it is included as a callout-group (COG) in a user defined file. If a lineage is not immediately identified in the COG file, LASR then recursively identifies the closest related parent that matches one listed in the COG file. The final output is structured into three main columns, designed to facilitate further downstream analysis. You can read [how we use recursion](CallOutRecursion.md) more generally in the link.
+## TRACE: Tracking and Reporting Aggregated COVID-19 Emergences
+TRACE aggregates all known SARS-CoV-2 lineages based on their closest parent, as specified in the lineage.yml file from [outbreak.info](https://github.com/outbreak-info/outbreak.info/tree/master). The process involves checking each lineage in lineage.yml to determine if it is included as a callout-group (COG) in a user defined file. If a lineage is not immediately identified in the COG file, TRACE then recursively identifies the closest related parent that matches one listed in the COG file. The final output is structured into three main columns, designed to facilitate further downstream analysis. You can read [how we use recursion](CallOutRecursion.md) more generally in the link.
 
 This methodology has been adopted by the National Wastewater Surveillance System [NWSS](https://www.cdc.gov/nwss/index.html) as part of its NWSS and Improved dashboard.
 
@@ -31,15 +31,15 @@ A user must manually create a COG file, where each row functions as the represen
 
 A user can download the latest **lineage.yml** file directly from the [outbreak.info](https://github.com/outbreak-info/outbreak.info/tree/master) using the command:  
 ```
-python3 LASR.py --download
+python3 TRACE.py --download
 ```
 This will download and save the **lineage.yml** in the current working directory. This file is used as input for the `--lineage` flag. 
 
-### Runnign LASR
+### Runnign TRACE
 
-To run LASR with the minimal usage:
+To run TRACE with the minimal usage:
 ```
-python3 LASR.py --lineage lineage.yml --cog cog_file.csv
+python3 TRACE.py --lineage lineage.yml --cog cog_file.csv
 ```
 This will produce the output file called **COG.tsv**
 
@@ -49,7 +49,7 @@ The `--recombinants` flag is intended for **exploratory purposes only** and is n
 
 ### Output
 
-The final output when using the minimal usage of LASR returns a file called **COG.tsv** with three columns:
+The final output when using the minimal usage of TRACE returns a file called **COG.tsv** with three columns:
 1. lineage: name of the lineage as defined in the lineage.yml file
 2. cog: callout-group assotiated with the lineage
 3. hex: HEX color
@@ -62,9 +62,9 @@ When the `--full` flag is set, four additioinal columns are added to the **COG.t
 
 ### Help Menu
 ```
-usage: LASR.py [-h] [-c file] [-l file] [-r] [-x hex color] [-o file] [-e {t,c}] [-f] [-d]
+usage: TRACE.py [-h] [-c file] [-l file] [-r] [-x hex color] [-o file] [-e {t,c}] [-f] [-d]
 
-LASR: Lineage Aggregation for SARS-CoV-2 using Recursion
+TRACE: Tracking and Reporting Aggregated COVID-19 Emergences
 
 optional arguments:
   -h, --help            show this help message and exit
