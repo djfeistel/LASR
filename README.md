@@ -2,13 +2,9 @@
 
 Creating a meaninful visualization of SARS-CoV-2 relative abundance lineage estiamtes detected in and across wastewater samples can be challanging to accurately represent variations or interactions within a single visual format due the high number of distinct lineages. To overcome this, TRACE aggregates all known SARS-CoV-2 lineages into a single proxy lineage based on a least common ancestor. These proxy SARS-CoV-2 lineages are labeled "callout-groups" (COGs). The COG is user-defined and is represented by a known SARS-CoV-2 variant of interest (VOI) or concern (VOC) serving as the representative for all those descendant lineages. Aggregating SARS-CoV-2 lineages into COGs based on a least common ancestor facilitates a more streamlined visualization of the SARS-CoV-2 relative abundance estimates found in wastewater samples.
 
-TRACE aggregates lineages into COGs by their least common ancestor using the **lineage.yml** file from the [outbreak.info github](https://github.com/outbreak-info/outbreak.info/tree/master) and a user-defined COG file. and creates a new three column dataframe file where each row represents a lineage, COG, and a color code.
- 
- The new file is use for visualizing the relative abundance of aggregated SARS-CoV-2 lineages found in wastewater samples. 
+TRACE aggregates lineages into COGs by their least common ancestor using the **lineage.yml** file from the [outbreak.info github](https://github.com/outbreak-info/outbreak.info/tree/master) and a user-defined COG file, whcih creates a new three column dataframe file where each row represents a lineage, COG, and a color code. The new file can be use for visualizing the relative abundance of aggregated SARS-CoV-2 lineages found in wastewater samples. 
 
-The process involves checking each lineage in lineage.yml to determine if it is included as a callout-group (COG) in a user defined file. If a lineage is not immediately identified in the COG file, TRACE then recursively identifies the closest related parent that matches one listed in the COG file. The final output is structured into three main columns, designed to facilitate further downstream analysis. You can read [how we use recursion](CallOutRecursion.md) more generally in the link.
-
-This methodology has been adopted by the National Wastewater Surveillance System [NWSS](https://www.cdc.gov/nwss/index.html) as part of its NWSS and Improved dashboard.
+The process involves checking each lineage in the **lineage.yml** to determine if it is related to a COG. If a lineage is not immediately identified in as a COG, TRACE recursively identifies the least common ancestor mathing one listed in the COG file. If not match is found, then the lineage is classified as "Other". You can read more details on the [recursion algorithim here](CallOutRecursion.md)
 
 ## Dependencies
 Install the following libraries by running:  
