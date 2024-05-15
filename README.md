@@ -6,7 +6,7 @@ This methodology has been adopted by the National Wastewater Surveillance System
 ## Dependencies
 Install the following libraries by running:  
 ```
-pip install PyYAML pandas
+pip install PyYAML pandas requests
 ```
 
 ## Usage
